@@ -37,11 +37,6 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/metabox.php';
 
 /**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer/customizer.php';
-
-/**
  * Widgets.
  */
 require get_template_directory() . '/inc/widgets/widgets.php';
@@ -50,6 +45,11 @@ require get_template_directory() . '/inc/widgets/widgets.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer/customizer.php';
 
 /**
 * Recommended Plugins

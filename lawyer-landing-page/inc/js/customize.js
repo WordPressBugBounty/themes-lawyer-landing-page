@@ -19,8 +19,10 @@ jQuery(document).ready(function($) {
         $.ajax ({
             url     : lawyer_landing_page_cdata.ajax_url,  
             type    : 'post',
-            data    : 'action=flush_local_google_fonts',    
-            nonce   : lawyer_landing_page_cdata.nonce,
+            data    : {
+                action: 'flush_local_google_fonts',
+                nonce: lawyer_landing_page_cdata.nonce
+            },
             success : function(results){
                 //results can be appended in needed
                 $( '.flush-it' ).val(lawyer_landing_page_cdata.flushit);

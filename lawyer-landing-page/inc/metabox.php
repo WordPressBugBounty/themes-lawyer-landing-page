@@ -18,21 +18,31 @@ function lawyer_landing_page_add_sidebar_layout_box(){
     );
 }
 
-$lawyer_landing_page_sidebar_layout = array(         
-    'right-sidebar' => array(
-        'value' => 'right-sidebar',
-        'label' => __( 'Right sidebar (default)', 'lawyer-landing-page' ),
-        'thumbnail' => get_template_directory_uri() . '/images/right-sidebar.png'
-    ),
-    'no-sidebar' => array(
-        'value'     => 'no-sidebar',
-        'label'     => __( 'No sidebar', 'lawyer-landing-page' ),
-        'thumbnail' => get_template_directory_uri() . '/images/no-sidebar.png'
-    )   
-);
+/**
+ * Get sidebar layout data.
+ *
+ * @return array
+ */
+if( ! function_exists( 'lawyer_landing_page_get_sidebar_layout_data' ) ){
+    function lawyer_landing_page_get_sidebar_layout_data(){
+        return array(
+            'right-sidebar' => array(
+                'value' => 'right-sidebar',
+                'label' => __( 'Right sidebar (default)', 'lawyer-landing-page' ),
+                'thumbnail' => get_template_directory_uri() . '/images/right-sidebar.png'
+            ),
+            'no-sidebar' => array(
+                'value'     => 'no-sidebar',
+                'label'     => __( 'No sidebar', 'lawyer-landing-page' ),
+                'thumbnail' => get_template_directory_uri() . '/images/no-sidebar.png'
+            )    
+        );
+    }
+}
 
 function lawyer_landing_page_sidebar_layout_callback(){
-    global $post, $lawyer_landing_page_sidebar_layout;
+    global $post;
+    $lawyer_landing_page_sidebar_layout = lawyer_landing_page_get_sidebar_layout_data();
     wp_nonce_field( basename( __FILE__ ), 'lawyer_landing_page_sidebar_layout_nonce' ); ?>
     <table class="form-table">
         <tr>
@@ -64,7 +74,8 @@ function lawyer_landing_page_sidebar_layout_callback(){
  * @hooked to save_post hook
  */
 function lawyer_landing_page_save_sidebar_layout( $post_id ) { 
-    global $lawyer_landing_page_sidebar_layout; 
+    $lawyer_landing_page_sidebar_layout = lawyer_landing_page_get_sidebar_layout_data();
+
 
     // Verify the nonce before proceeding.
     if( !isset( $_POST[ 'lawyer_landing_page_sidebar_layout_nonce' ] ) || !wp_verify_nonce( sanitize_key( $_POST[ 'lawyer_landing_page_sidebar_layout_nonce' ] ), basename( __FILE__ ) ) )
