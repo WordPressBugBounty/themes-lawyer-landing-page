@@ -79,3 +79,7 @@ label.row-element.more-detail{
 	margin-left:  0;
 	margin-right: 8px;
 }
+
+#accordion-section-lawyer_landing_page_view_pro .accordion-section-title::after{
+   content: none;
+}

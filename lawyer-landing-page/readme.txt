@@ -2,9 +2,9 @@
 
 Contributors: raratheme
 Requires at least: 6.2
-Requires PHP: 7.3
+Requires PHP: 7.4
 Tested up to: 6.9
-Stable tag: 1.2.8
+Stable tag: 1.2.9
 
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -109,6 +109,9 @@ Lawyer Landing Page WordPress Theme is distributed under the terms of the GPLv2 
    GNU General Public License for more details.
    
 == Change Log ==
+
+    1.2.9 - March 31, 2026
+    * Update: Updated PHP to 7.4.
 
     1.2.8 - Feb 6, 2026
     * Update: Added the security measures for Broken Access Control.
